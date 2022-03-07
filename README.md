@@ -10,7 +10,7 @@ See [main.dart](./lib/main.dart).
 
 ![screenshot](./screenshot.png)
 
-## Expection
+## Expectation
 
 I expect listener() to be called as soon as the first value is yielded from the stream:
 
