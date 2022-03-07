@@ -35,3 +35,7 @@ flutter: listen – previous: 0
 flutter: listen – next: 1
 [...]
 ```
+
+## Solution
+
+<https://github.com/rrousselGit/river_pod/issues/1262#issuecomment-1060751077>
