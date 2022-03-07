@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+void main() {
+  runApp(const ProviderScope(child: MyApp()));
+}
+
 final streamProvider = StreamProvider<int>((ref) async* {
   await for (final value in Stream.periodic(
     const Duration(seconds: 1),
@@ -11,22 +15,19 @@ final streamProvider = StreamProvider<int>((ref) async* {
   }
 });
 
-void main() {
-  runApp(const ProviderScope(child: MyApp()));
-}
-
 class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final value = ref.watch(streamProvider).value;
+    ref.listen<Future<int>>(streamProvider.future, (previous, next) async {
+      debugPrint("listen – previous: ${await previous}");
+      debugPrint("listen – next: ${await next}");
+    });
 
-    ref.listen(streamProvider.future, (previous, next) {});
-
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
-        body: Center(child: Text("value: $value")),
+        body: Center(child: Text('first_stream_listen_issue')),
       ),
     );
   }
