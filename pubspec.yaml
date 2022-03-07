@@ -1,5 +1,5 @@
 name: first_stream_listen_issue
-description: "Issue: ref.listen does not catch first yield from a StreamProvider"
+description: "Issue: WidgetRef.listen does not catch first yield from a StreamProvider"
 publish_to: "none"
 version: 0.0.0+0
 

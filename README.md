@@ -1,16 +1,31 @@
 # first_stream_listen_issue
 
-A new Flutter project.
+Issue: [WidgetRef.listen](https://pub.dev/documentation/flutter_riverpod/latest/flutter_riverpod/WidgetRef/listen.html) does not catch first yield from a StreamProvider
 
-## Getting Started
+![screenshot](./screenshot.png)
 
-This project is a starting point for a Flutter application.
+I expect the log to be:
 
-A few resources to get you started if this is your first Flutter project:
+```text
+Restarted application in 607ms.
+flutter: streamProvider – value: 0
+flutter: listen – previous: null
+flutter: listen – next: 0
+flutter: streamProvider – value: 1
+flutter: listen – previous: 0
+flutter: listen – next: 1
+[...]
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+However, it is:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```text
+Restarted application in 607ms.
+flutter: streamProvider – value: 0
+flutter: streamProvider – value: 1
+flutter: listen – previous: 0
+flutter: listen – next: 1
+[...]
+```
+
+=> listener() is called only once the stream has two values.
