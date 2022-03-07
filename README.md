@@ -1,8 +1,16 @@
 # first_stream_listen_issue
 
-Issue: [WidgetRef.listen](https://pub.dev/documentation/flutter_riverpod/latest/flutter_riverpod/WidgetRef/listen.html) does not catch first yield from a StreamProvider
+## Issue
+
+[WidgetRef.listen](https://pub.dev/documentation/flutter_riverpod/latest/flutter_riverpod/WidgetRef/listen.html) does not catch first yield from a StreamProvider
+
+## Reproduction
+
+See [main.dart](./lib/main.dart).
 
 ![screenshot](./screenshot.png)
+
+## Expection
 
 I expect listener() to be called as soon as the first value is yielded from the stream:
 
