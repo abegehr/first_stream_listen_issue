@@ -4,7 +4,7 @@ Issue: [WidgetRef.listen](https://pub.dev/documentation/flutter_riverpod/latest/
 
 ![screenshot](./screenshot.png)
 
-I expect the log to be:
+I expect listener() to be called as soon as the first value is yielded from the stream:
 
 ```text
 Restarted application in 607ms.
@@ -17,7 +17,7 @@ flutter: listen – next: 1
 [...]
 ```
 
-However, it is:
+However, listener() is. called only once two values are yield by the stream:
 
 ```text
 Restarted application in 607ms.
@@ -27,5 +27,3 @@ flutter: listen – previous: 0
 flutter: listen – next: 1
 [...]
 ```
-
-=> listener() is called only once the stream has two values.
