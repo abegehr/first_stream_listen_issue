@@ -1,0 +1,21 @@
+name: first_stream_listen_issue
+description: "Issue: ref.listen does not catch first yield from a StreamProvider"
+publish_to: "none"
+version: 0.0.0+0
+
+environment:
+  sdk: ">=2.17.0-69.2.beta <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_riverpod: ^2.0.0-dev.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
+  uses-material-design: true
